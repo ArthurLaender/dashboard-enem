@@ -59,7 +59,6 @@ try:
     
     # URL de download direto (formato gdown)
     if st.button("🔄 Carregar dados"):
-        @st.cache_data
         def carregar_dados():
             gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
             enem_tratado = pd.read_parquet('enem_reduzido.parquet')
