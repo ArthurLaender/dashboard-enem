@@ -58,7 +58,7 @@ dtype_dict = {
 #enem_tratado = carregar_dados()  # Chama a função e carrega os dados no DataFrame
 
 # URL de download direto (formato gdown)
-
+@st.cache_data
 def carregar_dados():
     gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
     enem_tratado = pd.read_parquet('enem_reduzido.parquet')
