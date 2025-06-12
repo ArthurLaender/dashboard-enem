@@ -57,11 +57,12 @@ dtype_dict = {
 
 # URL de download direto (formato gdown)
 
-# Faz o download
-gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
-
-# Lê o arquivo
-enem_tratado = pd.read_parquet('enem_reduzido.parquet')
+@st.cache_data
+def carregar_dados():
+    gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
+    enem_tratado = pd.read_parquet('enem_reduzido.parquet')
+    return enem_tratado
+enem_tratado = carregar_dados()
 
 # In[ ]:
 
