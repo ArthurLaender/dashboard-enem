@@ -12,7 +12,6 @@ import json #Lê arquivos Javascript para fazer mapa geográfico
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
-import gdown
 
 # In[3]:
 
@@ -47,6 +46,28 @@ dtype_dict = {
     'Q025': 'category',
     'STATUS_PRESENCA': 'category'
 }
+
+_2018_transformado = pd.read_parquet("enem_2018.parquet")
+_2019_transformado = pd.read_parquet("enem_2019.parquet")
+_2020_transformado = pd.read_parquet("enem_2020.parquet")
+_2021_transformado = pd.read_parquet("enem_2021.parquet")
+_2022_transformado = pd.read_parquet("enem_2022.parquet")
+_2023_transformado = pd.read_parquet("enem_2023.parquet")
+
+# Concatena em uma única variável
+enem_tratado = pd.concat([
+    _2018_transformado,
+    _2019_transformado,
+    _2020_transformado,
+    _2021_transformado,
+    _2022_transformado,
+    _2023_transformado
+], ignore_index=True)
+
+# Libera memória/cache do computador
+del _2018_transformado, _2019_transformado, _2020_transformado
+del _2021_transformado, _2022_transformado, _2023_transformado
+
 #@st.cache_data  # Cache para não recarregar o arquivo a cada mudança
 # Lê o arquivo parquet com os dados tratados do ENEM
 #def carregar_dados():
@@ -58,10 +79,10 @@ dtype_dict = {
 # URL de download direto (formato gdown)
 
 # Faz o download
-gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
+#gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
 
 # Lê o arquivo
-enem_tratado = pd.read_parquet('enem_reduzido.parquet')
+#enem_tratado = pd.read_parquet('enem_reduzido.parquet')
 
 # In[ ]:
 
