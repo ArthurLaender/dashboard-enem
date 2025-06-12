@@ -55,6 +55,7 @@ _2022_transformado = pd.read_parquet("enem_2022.parquet")
 _2023_transformado = pd.read_parquet("enem_2023.parquet")
 
 # Concatena em uma única variável
+@st.cache_data
 def carregar_dados():
     enem_tratado = pd.concat([
         _2018_transformado,
