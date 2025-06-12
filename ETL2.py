@@ -55,18 +55,19 @@ _2022_transformado = pd.read_parquet("enem_2022.parquet")
 _2023_transformado = pd.read_parquet("enem_2023.parquet")
 
 # Concatena em uma única variável
-enem_tratado = pd.concat([
-    _2018_transformado,
-    _2019_transformado,
-    _2020_transformado,
-    _2021_transformado,
-    _2022_transformado,
-    _2023_transformado
-], ignore_index=True)
-
+def carregar_dados():
+    enem_tratado = pd.concat([
+        _2018_transformado,
+        _2019_transformado,
+        _2020_transformado,
+        _2021_transformado,
+        _2022_transformado,
+        _2023_transformado
+    ], ignore_index=True)
+    return enem_tratado
+enem_tratado = carregar_dados()
 # Libera memória/cache do computador
-del _2018_transformado, _2019_transformado, _2020_transformado
-del _2021_transformado, _2022_transformado, _2023_transformado
+del _2018_transformado, _2019_transformado, _2020_transformado, _2021_transformado, _2022_transformado, _2023_transformado
 
 #@st.cache_data  # Cache para não recarregar o arquivo a cada mudança
 # Lê o arquivo parquet com os dados tratados do ENEM
