@@ -58,13 +58,13 @@ try:
     #enem_tratado = carregar_dados()  # Chama a função e carrega os dados no DataFrame
     
     # URL de download direto (formato gdown)
-    if st.button("🔄 Carregar dados"):
-        def carregar_dados():
-            gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
-            enem_tratado = pd.read_parquet('enem_reduzido.parquet')
-            return enem_tratado
-        enem_tratado = carregar_dados()
-        
+    
+    def carregar_dados():
+        gdown.download('https://drive.google.com/uc?id=1JTNRRBI-kwafrSrVSAPFdwRoICTriuyM', 'enem_reduzido.parquet', quiet=False)
+        enem_tratado = pd.read_parquet('enem_reduzido.parquet')
+        return enem_tratado
+    enem_tratado = carregar_dados()
+    if st.button("🔄 Carregar dados"):  
         # In[ ]:
         
         mapa_cor_raca = {
