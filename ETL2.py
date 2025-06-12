@@ -18,7 +18,9 @@ import gdown
 
 try:
     # Configura a página de dashboard do Streamlit
-    st.set_page_config(layout="wide")
+    st.set_page_config(page_title="Dashboard ENEM", layout="wide")
+
+    st.title("Dashboard ENEM")
     
     st.markdown("""
         <style>
