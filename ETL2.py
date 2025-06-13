@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 # In[3]:
-
+st.title("Dashboard ENEM - Interativo")
 
 # Configura a página de dashboard do Streamlit
 st.set_page_config(layout="wide")
