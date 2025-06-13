@@ -54,7 +54,7 @@ dtype_dict = {
 # Concatena em uma única variável
 @st.cache_data
 def carregar_dados():
-    anos = [2018, 2019, 2020, 2021, 2022, 2023]
+    anos = [2018, 2019, 2020, 2021]
     lista_df = []
 
     for ano in anos:
