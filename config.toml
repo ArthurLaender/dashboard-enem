@@ -1,2 +1,3 @@
-[logger]
-level = "debug"
+# .streamlit/config.toml
+[server]
+enableStaticServing = true
