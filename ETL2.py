@@ -48,11 +48,17 @@ dtype_dict = {
 }
 
 _2018_transformado = pd.read_parquet("enem_2018.parquet")
+st.write("enem_2018.parquet carregado com sucesso")
 _2019_transformado = pd.read_parquet("enem_2019.parquet")
+st.write("enem_2019.parquet carregado com sucesso")
 _2020_transformado = pd.read_parquet("enem_2020.parquet")
+st.write("enem_2020.parquet carregado com sucesso")
 _2021_transformado = pd.read_parquet("enem_2021.parquet")
+st.write("enem_2021.parquet carregado com sucesso")
 _2022_transformado = pd.read_parquet("enem_2022.parquet")
+st.write("enem_2022.parquet carregado com sucesso")
 _2023_transformado = pd.read_parquet("enem_2023.parquet")
+st.write("enem_2023.parquet carregado com sucesso")
 
 # Concatena em uma única variável
 @st.cache_data
