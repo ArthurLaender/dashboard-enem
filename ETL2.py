@@ -59,7 +59,7 @@ def carregar_dados():
 
     for ano in anos:
         try:
-            arquivo = f"enem_{ano}.parquet"
+            arquivo = f"data/enem_{ano}.parquet"
             df = pd.read_parquet(arquivo)
             st.write(f"{arquivo} carregado com sucesso - Linhas: {len(df)}")
             lista_df.append(df)
