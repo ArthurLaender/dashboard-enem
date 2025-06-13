@@ -54,27 +54,24 @@ dtype_dict = {
 # Concatena em uma única variável
 @st.cache_data
 def carregar_dados():
-    _2018_transformado = pd.read_parquet("enem_2018.parquet")
-    st.write("enem_2018.parquet carregado com sucesso")
-    _2019_transformado = pd.read_parquet("enem_2019.parquet")
-    st.write("enem_2019.parquet carregado com sucesso")
-    _2020_transformado = pd.read_parquet("enem_2020.parquet")
-    st.write("enem_2020.parquet carregado com sucesso")
-    _2021_transformado = pd.read_parquet("enem_2021.parquet")
-    st.write("enem_2021.parquet carregado com sucesso")
-    _2022_transformado = pd.read_parquet("enem_2022.parquet")
-    st.write("enem_2022.parquet carregado com sucesso")
-    _2023_transformado = pd.read_parquet("enem_2023.parquet")
-    st.write("enem_2023.parquet carregado com sucesso")
-    enem_tratado = pd.concat([
-        _2018_transformado,
-        _2019_transformado,
-        _2020_transformado,
-        _2021_transformado,
-        _2022_transformado,
-        _2023_transformado
-    ], ignore_index=True)
-    return enem_tratado
+    anos = [2018, 2019, 2020, 2021, 2022, 2023]
+    lista_df = []
+
+    for ano in anos:
+        try:
+            arquivo = f"enem_{ano}.parquet"
+            df = pd.read_parquet(arquivo)
+            st.write(f"{arquivo} carregado com sucesso - Linhas: {len(df)}")
+            lista_df.append(df)
+        except Exception as e:
+            st.error(f"Erro ao carregar {arquivo}: {e}")
+
+    if lista_df:
+        enem_tratado = pd.concat(lista_df, ignore_index=True)
+        return enem_tratado
+    else:
+        st.stop()  # Encerra a execução se nenhum arquivo foi carregado
+
 enem_tratado = carregar_dados()
 # Libera memória/cache do computador
 del _2018_transformado, _2019_transformado, _2020_transformado, _2021_transformado, _2022_transformado, _2023_transformado
