@@ -85,16 +85,7 @@ enem_tratado = carregar_dados()
 
 # In[ ]:
 
-mapa_cor_raca = {
-    0: "Não declarado",
-    1: "Branca",
-    2: "Preta",
-    3: "Parda",
-    4: "Amarela",
-    5: "Indígena",
-    6: "Sem informação"
-}
-enem_tratado["TP_COR_RACA"] = enem_tratado["TP_COR_RACA"].replace(mapa_cor_raca)
+
 
 # Cria os filtros de ano, sexo e cor/raça
 anos = sorted(enem_tratado["NU_ANO"].dropna().unique())  
