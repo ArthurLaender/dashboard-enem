@@ -54,23 +54,15 @@ dtype_dict = {
 # Concatena em uma única variável
 @st.cache_data
 def carregar_dados():
-    anos = [2018,2019,2020,2021,2022,2023]
-    lista_df = []
-
-    for ano in anos:
-        try:
-            arquivo = f"data/enem_{ano}.parquet"
-            df = pd.read_parquet(arquivo)
-            st.write(f"{arquivo} carregado com sucesso - Linhas: {len(df)}")
-            lista_df.append(df)
-        except Exception as e:
-            st.error(f"Erro ao carregar {arquivo}: {e}")
-
-    if lista_df:
-        enem_tratado = pd.concat(lista_df, ignore_index=True)
-        return enem_tratado
-    else:
-        st.stop()  # Encerra a execução se nenhum arquivo foi carregado
+    enem_tratado = pd.concat([
+        pd.read_parquet("data/enem_2018.parquet"),
+        pd.read_parquet("data/enem_2019.parquet"),
+        pd.read_parquet("data/enem_2020.parquet"),
+        pd.read_parquet("data/enem_2021.parquet"),
+        pd.read_parquet("data/enem_2022.parquet"),
+        pd.read_parquet("data/enem_2023.parquet")
+    ], ignore_index=True)
+    return enem_tratado
 
 enem_tratado = carregar_dados()
 # Libera memória/cache do computador
