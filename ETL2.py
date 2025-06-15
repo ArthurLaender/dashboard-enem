@@ -54,7 +54,7 @@ def carregar_dados():
         "SG_UF_PROVA": "category",
         "TP_COR_RACA": "int8",
         "TP_ESCOLA": "int8",
-        "STATUS_PRESENCA": "category"
+        "STATUS_PRESENCA": "category",
         "Q006": "category",
         "Q025": "category",
         "TP_ST_CONCLUSAO": "category",
