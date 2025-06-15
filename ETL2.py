@@ -94,8 +94,8 @@ cores = enem_tratado["TP_COR_RACA"].dropna().unique()
 
 # Filtro multiselect na barra lateral
 ano_sel = st.sidebar.multiselect("Ano", anos, default=[])
-sexo_sel = st.sidebar.multiselect("Sexo", sexos, default=[])
-cor_sel = st.sidebar.multiselect("Cor/Raça", cores, default=[])
+sexo_sel = st.sidebar.multiselect("Sexo", sexos, default=sexos)
+cor_sel = st.sidebar.multiselect("Cor/Raça", cores, default=cores)
 
 # Aplica os filtros ao gráficos
 enem_filtros = enem_tratado[
