@@ -47,7 +47,8 @@ st.sidebar.title("Filtros")  # Título da barra lateral (Filtros)
 # Concatena em uma única variável
 
 #Define os tipos de algumas colunas para otimização
-@st.cache_data
+#@st.cache_data
+@st.cache_resource
 def carregar_dados():
     tipos_colunas = {
         "NU_ANO": "category",
