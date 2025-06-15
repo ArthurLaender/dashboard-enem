@@ -52,8 +52,7 @@ def carregar_dados():
     tipos_colunas = {
         "TP_SEXO": "category",
         "SG_UF_PROVA": "category",
-        "TP_COR_RACA": "int8",
-        "TP_ESCOLA": "int8",
+        "TP_COR_RACA": "category",
         "STATUS_PRESENCA": "category",
         "Q006": "category",
         "Q025": "category",
