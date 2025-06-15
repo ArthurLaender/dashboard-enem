@@ -54,6 +54,18 @@ dtype_dict = {
 # Concatena em uma única variável
 @st.cache_data
 def carregar_dados():
+    tipos_colunas = {
+        "TP_SEXO": "category",
+        "NU_IDADE": "int8",
+        "SG_UF_PROVA": "category",
+        "TP_COR_RACA": "int8",
+        "TP_ESCOLA": "int8",
+        "NU_NOTA_MT": "float32",
+        "NU_NOTA_CN": "float32",
+        "NU_NOTA_CH": "float32",
+        "NU_NOTA_LC": "float32",
+        "NU_NOTA_REDACAO": "float32"
+    }
     enem_tratado = pd.concat([
         pd.read_parquet("data/enem_2018.parquet"),
         pd.read_parquet("data/enem_2019.parquet"),
@@ -61,7 +73,7 @@ def carregar_dados():
         pd.read_parquet("data/enem_2021.parquet"),
         pd.read_parquet("data/enem_2022.parquet"),
         pd.read_parquet("data/enem_2023.parquet")
-    ], ignore_index=True)
+    ], ignore_index=True).astype(tipos_colunas)
     return enem_tratado
 
 enem_tratado = carregar_dados()
