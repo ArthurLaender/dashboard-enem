@@ -57,7 +57,7 @@ def carregar_dados():
         "STATUS_PRESENCA": "category"
         "Q006": "category",
         "Q025": "category",
-        "TP_ST_CONCLUSAO": 'category",
+        "TP_ST_CONCLUSAO": "category",
         "MEDIA_NOTAS": "category"
     }
     
