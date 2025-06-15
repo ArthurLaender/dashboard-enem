@@ -40,33 +40,25 @@ st.sidebar.title("Filtros")  # Título da barra lateral (Filtros)
 
 
 
-#Define os tipos de algumas colunas para otimização
-dtype_dict = {
-    'SG_UF_PROVA': 'category',
-    'TP_ST_CONCLUSAO': 'category',
-    'Q006': 'category',
-    'Q025': 'category',
-    'STATUS_PRESENCA': 'category'
-}
+
 
 
 
 # Concatena em uma única variável
 
-
+#Define os tipos de algumas colunas para otimização
 @st.cache_data
 def carregar_dados():
     tipos_colunas = {
         "TP_SEXO": "category",
-        "NU_IDADE": "int8",
         "SG_UF_PROVA": "category",
         "TP_COR_RACA": "int8",
         "TP_ESCOLA": "int8",
-        "NU_NOTA_MT": "float32",
-        "NU_NOTA_CN": "float32",
-        "NU_NOTA_CH": "float32",
-        "NU_NOTA_LC": "float32",
-        "NU_NOTA_REDACAO": "float32"
+        'STATUS_PRESENCA': 'category'
+        'Q006': 'category',
+        'Q025': 'category',
+        'TP_ST_CONCLUSAO': 'category',
+        'MEDIA_NOTAS': 'category',
     }
     
     arquivos = [
