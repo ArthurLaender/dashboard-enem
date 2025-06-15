@@ -50,6 +50,7 @@ st.sidebar.title("Filtros")  # Título da barra lateral (Filtros)
 @st.cache_data
 def carregar_dados():
     tipos_colunas = {
+        "NU_ANO": "category",
         "TP_SEXO": "category",
         "SG_UF_PROVA": "category",
         "TP_COR_RACA": "category",
