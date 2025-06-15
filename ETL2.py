@@ -58,7 +58,7 @@ def carregar_dados():
         "Q006": "category",
         "Q025": "category",
         "TP_ST_CONCLUSAO": "category",
-        "MEDIA_NOTAS": "category"
+        "MEDIA_NOTAS": "float32"
     }
     
     arquivos = [
