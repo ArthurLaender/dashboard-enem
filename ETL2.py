@@ -52,6 +52,8 @@ dtype_dict = {
 
 
 # Concatena em uma única variável
+
+
 @st.cache_data
 def carregar_dados():
     tipos_colunas = {
@@ -66,14 +68,20 @@ def carregar_dados():
         "NU_NOTA_LC": "float32",
         "NU_NOTA_REDACAO": "float32"
     }
-    enem_tratado = pd.concat([
-        pd.read_parquet("data/enem_2018.parquet"),
-        pd.read_parquet("data/enem_2019.parquet"),
-        pd.read_parquet("data/enem_2020.parquet"),
-        pd.read_parquet("data/enem_2021.parquet"),
-        pd.read_parquet("data/enem_2022.parquet"),
-        pd.read_parquet("data/enem_2023.parquet")
-    ], ignore_index=True).astype(tipos_colunas)
+    
+    arquivos = [
+        "data/enem_2018.parquet",
+        "data/enem_2019.parquet",
+        "data/enem_2020.parquet",
+        "data/enem_2021.parquet",
+        "data/enem_2022.parquet",
+        "data/enem_2023.parquet"
+    ]
+    enem_tratado = pd.concat([pd.read_parquet(arquivo) for arquivo in arquivos], ignore_index=True)
+    
+    # Aplica os tipos (ignora erro caso alguma coluna não esteja presente)
+    enem_tratado = enem_tratado.astype(tipos_colunas, errors='ignore')
+    
     return enem_tratado
 
 enem_tratado = carregar_dados()
