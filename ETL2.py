@@ -266,7 +266,7 @@ with col_centro:
     presentes = enem_filtros[enem_filtros["STATUS_PRESENCA"] == "Presente"]
 
     # Garante que o ano seja tratado como string (evita problemas no eixo X/Y)
-    presentes['NU_ANO'] = presentes['NU_ANO'].astype(str)
+    #presentes['NU_ANO'] = presentes['NU_ANO'].astype(str)
 
     # Cria uma tabela dinâmica com a média das notas por ano e renda (Q006)
     heat_data = presentes.pivot_table(
