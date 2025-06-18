@@ -327,7 +327,7 @@ with col_centro:
         "Ano: %{y}<br>" +
         "Renda: %{x}<br>" +
         "Média de Notas: %{z:.2f}<br>" +
-        "Participantes: %{customdata}<extra></extra>"
+        "Participantes: %{customdata[0]}<extra></extra>"
     )
 
     # Ajusta os eixos e layout
