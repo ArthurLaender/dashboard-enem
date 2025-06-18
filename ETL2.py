@@ -322,12 +322,12 @@ with col_centro:
 
     # Adiciona customdata com a contagem e ajusta o hovertemplate
     fig_heat.update_traces(
-        customdata=count_data.values,
+        customdata=count_data.values.astype(float),
         hovertemplate=
         "Ano: %{y}<br>" +
         "Renda: %{x}<br>" +
         "Média de Notas: %{z:.2f}<br>" +
-        "Participantes: %{customdata[0]}<extra></extra>"
+        "Participantes: %{customdata:.0f}<extra></extra>"
     )
 
     # Ajusta os eixos e layout
