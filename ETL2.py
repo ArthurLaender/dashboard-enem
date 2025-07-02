@@ -236,7 +236,7 @@ with col_centro:
     enem_uf.columns = ["SG_UF_PROVA", "Quantidade"]
 
 
-    # Cria mapa geográfico por estado (versão simplificada)
+    # Cria mapa geográfico por estado 
     fig_map = px.choropleth(
         enem_uf,
         geojson=geojson_data,
@@ -364,11 +364,11 @@ with col_direita:
     # Cria gráfico de barras com quantidade e porcentagem
     fig_q025 = px.bar(
         enem_grupo,
-        x="NU_ANO",                        # Rótulo X: resposta da pergunta
-        y="Total",                 # Altura da barra: número de respostas
+        x="NU_ANO",                     # Resposta da pergunta
+        y="Total",                      # Altura da barra: número de respostas
         color="Q025",                   # Cor de cada barra por categoria
         color_continuous_scale="YlOrRd",
-        text='Label',          # <-- Mostra a % em cada segmento
+        text='Label',          #Mostra a % em cada segmento
         title='Acesso à Internet por Ano',
         labels={'Q025': 'Acesso à Internet?', "NU_ANO": "Ano"},
         category_orders={"NU_ANO": sorted(enem_grupo["NU_ANO"].unique())},
@@ -379,7 +379,7 @@ with col_direita:
     )
     fig_q025.update_layout(barmode='stack',
         height=400)
-    fig_q025.update_traces(textposition='inside')  # <-- Aqui o texto fica dentro das barras
+    fig_q025.update_traces(textposition='inside')  # Texto dentro das barras
     fig_q025.update_xaxes(type='category')
     # Exibe o gráfico
     st.plotly_chart(fig_q025, use_container_width=True)
